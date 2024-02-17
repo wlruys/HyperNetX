@@ -1854,7 +1854,7 @@ class Hypergraph:
         list of the s-component nodes
         """
         A, coldict = self.adjacency_matrix(s=s, index=True)
-        G = nx.from_scipy_sparse_matrix(A)
+        G = nx.from_scipy_sparse_array(A)
         diams = []
         comps = []
         for c in nx.connected_components(G):
@@ -1888,7 +1888,7 @@ class Hypergraph:
 
         """
         A, coldict = self.edge_adjacency_matrix(s=s, index=True)
-        G = nx.from_scipy_sparse_matrix(A)
+        G = nx.from_scipy_sparse_array(A)
         diams = []
         comps = []
         for c in nx.connected_components(G):
@@ -1929,7 +1929,7 @@ class Hypergraph:
 
         """
         A = self.adjacency_matrix(s=s)
-        G = nx.from_scipy_sparse_matrix(A)
+        G = nx.from_scipy_sparse_array(A)
         if nx.is_connected(G):
             return nx.diameter(G)
 
@@ -1963,7 +1963,7 @@ class Hypergraph:
 
         """
         A = self.edge_adjacency_matrix(s=s)
-        G = nx.from_scipy_sparse_matrix(A)
+        G = nx.from_scipy_sparse_array(A)
         if nx.is_connected(G):
             return nx.diameter(G)
 
